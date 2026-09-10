@@ -18,27 +18,29 @@
       "slug": "ebook-lettering",
       "titulo": "Ebook de Lettering",
       "meta": "Ebook PDF",
-      "precio": "$13.000 ARS",
-      "descripcion": "Una guía descargable con todo lo que tenés que saber sobre Lettering. De lo más basico a temas avanzados, a tu propio ritmo. + de 100 páginas con información, ejemplos y ejercicios. Lo comprás hoy, lo tenés para siempre. ",
+      "precio": "$14.000 ARS",
+      "descripcion": "Una guía descargable con mi proceso completo de lettering: trazos, composición y estilo. Incluye ejercicios y referencias.",
       "imagenes": [
         "assets/ebook-1.webp",
         "assets/ebook-2.webp",
         "assets/ebook-3.webp",
         "assets/ebook-4.webp",
         "assets/ebook-5.webp"
-      ]
+      ],
+      "link": "https://pay.hotmart.com/X103944684F?off=vv3kw56b&hotfeature=51&bid=1789073689923"
     },
     {
       "slug": "curso-lettering",
       "titulo": "Curso Online de Lettering",
       "meta": "Curso online",
       "precio": "$40.000 ARS",
-      "descripcion": "Curso en video donde recorro el lettering de principio a fin, en este curso te acompaño desde lo más básico como los trazos, hasta ABC completos en mayúscula y minúscula. Lo comprás hoy y te queda de por vida. + de 2 hs de video acompañandote en el proceso. ",
+      "descripcion": "Curso en video donde recorro el lettering de principio a fin, explicando cada decisión de trazo y composición. Acceso ilimitado.",
       "imagenes": [
         "assets/curso-1.webp",
         "assets/curso-2.webp",
         "assets/curso-3.webp"
-      ]
+      ],
+      "link": "https://hotmart.com/es/marketplace/productos/domina-el-arte-del-lettering-paso-a-paso/H96631192A"
     }
   ]
 }
