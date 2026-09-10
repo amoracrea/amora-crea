@@ -1,0 +1,45 @@
+{
+  "vidrieras": [
+    {
+      "anio": "2026",
+      "titulo": "Vidriera Mundialista — El Almacén Natural",
+      "descripcion": "Vidrieras pintadas con pintura acrílica, diseño exclusivo para teñir de Argentina este bar y tienda saludable.",
+      "imagen": "",
+      "video": "assets/vidriera-almacen-natural.mp4"
+    },
+    {
+      "anio": "2026",
+      "titulo": "Vidriera Mundialista — Pastas Adriana",
+      "descripcion": "Combinamos la pasión mundialista con las pastas para crear un diseño llamativo y creativo.",
+      "imagen": "assets/vidriera-pastas-adriana.webp",
+      "video": "assets/vidriera-pastas-adriana.mp4"
+    },
+    {
+      "anio": "2026",
+      "titulo": "Vidriera Día del Amigo — Limón Japón",
+      "descripcion": "Esta clienta solicitó un motivo floral y llamativo para acompañar la festividad del Día del Amigo.",
+      "imagen": "assets/vidriera-limon-japon.webp",
+      "imagen2": "assets/vidriera-limon-japon-2.webp"
+    },
+    {
+      "anio": "2026",
+      "titulo": "Vidriera TDH — Promoción Iguazú",
+      "descripcion": "Con este cliente estamos realizando de manera mensual intervenciones en su local, promocionando diferentes destinos de temporada. Potenciando así la visibilidad y las ventas.",
+      "imagen": "",
+      "imagen2": "assets/vidriera-tdh-2.webp"
+    },
+    {
+      "anio": "2026",
+      "titulo": "Vidriera Pastas Adriana",
+      "descripcion": "Diseñé una vidriera que trae las raíces italianas de las pastas, combinadas con una frase en lettering para desarrollar comunidad y visibilidad.",
+      "imagen": "assets/pastas-adriana-a.webp",
+      "imagen2": "assets/pastas-adriana-b.webp"
+    },
+    {
+      "anio": "2026",
+      "titulo": "Vidriera Mini — Salusso Seguros",
+      "descripcion": "Realicé una intervención en lettering para Salusso Seguros para Navidad.",
+      "imagen": "assets/salusso-seguros.webp"
+    }
+  ]
+}

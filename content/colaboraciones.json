@@ -1,0 +1,20 @@
+{
+  "colaboraciones": [
+    {
+      "titulo": "Colaboración 1",
+      "video": "assets/colab-1.mp4"
+    },
+    {
+      "titulo": "Colaboración 2",
+      "video": "assets/colab-2.mp4"
+    },
+    {
+      "titulo": "Colaboración 3",
+      "video": "assets/colab-3.mp4"
+    },
+    {
+      "titulo": "Colaboración 4",
+      "video": "assets/colab-4.mp4"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "obras": [
+    {
+      "slug": "purpurita",
+      "titulo": "Purpurita",
+      "tecnica": "Acrílico sobre lienzo",
+      "estado": "vendida",
+      "descripcion": "Una celebración de color y brillo — inspirada en esos pequeños destellos que la naturaleza esconde entre pétalos y minerales, cuando la luz les da de lleno.",
+      "imagenes": [
+        "assets/purpurita-mockup.webp",
+        "assets/purpurita.webp",
+        "assets/purpurita-3.webp"
+      ]
+    },
+    {
+      "slug": "tropicana",
+      "titulo": "Tropicana",
+      "tecnica": "Acrílico sobre lienzo",
+      "estado": "disponible",
+      "descripcion": "Hibiscus y aves del paraíso abriéndose contra un cielo de nubes. Quise pintar ese calor tropical donde cada flor compite por la luz.",
+      "imagenes": [
+        "assets/tropicana-mockup.webp",
+        "assets/tropicana.webp",
+        "assets/tropicana-manos.webp"
+      ]
+    },
+    {
+      "slug": "queda-mucho-por-florecer",
+      "titulo": "Queda mucho por florecer",
+      "tecnica": "Acrílico sobre lienzo",
+      "estado": "disponible",
+      "descripcion": "Un jardín de geranios y flores rosadas creciendo hacia arriba sobre un cielo celeste. Un recordatorio de que siempre queda mucho por florecer.",
+      "imagenes": [
+        "assets/florecer-mockup.webp",
+        "assets/florecer-manos.webp"
+      ]
+    },
+    {
+      "slug": "fluir",
+      "titulo": "Fluir",
+      "tecnica": "Acrílico sobre lienzo",
+      "estado": "disponible",
+      "descripcion": "Dos flores blancas sostenidas entre líneas verdes que ondulan como agua. Pinté el movimiento de dejarse llevar, sin resistencia.",
+      "imagenes": [
+        "assets/fluir-mockup.webp",
+        "assets/fluir-4x5.webp",
+        "assets/fluir-3.webp"
+      ]
+    }
+  ]
+}

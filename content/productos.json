@@ -1,0 +1,44 @@
+{
+  "productos": [
+    {
+      "slug": "sketchbook",
+      "titulo": "Sketchbook Amora",
+      "meta": "Envíos a todo el país",
+      "precio": "$45.000 ARS",
+      "descripcion": "Un cuaderno A4 pensado para quienes amamos dibujar y pintar. Contiene 4 tipos de hojas: obra de 200g, acuarela, negro y kraft, todos con alto gramaje perfecto para múltiples técnicas. Incluye un dije sorpresa y una lámina protectora.",
+      "imagenes": [
+        "assets/sketch-1.webp",
+        "assets/sketch-2.webp",
+        "assets/sketch-3.webp",
+        "assets/sketch-4.webp",
+        "assets/sketch-5.webp"
+      ]
+    },
+    {
+      "slug": "ebook-lettering",
+      "titulo": "Ebook de Lettering",
+      "meta": "Ebook PDF",
+      "precio": "$13.000 ARS",
+      "descripcion": "Una guía descargable con mi proceso completo de lettering: trazos, composición y estilo. Incluye ejercicios y referencias.",
+      "imagenes": [
+        "assets/ebook-1.webp",
+        "assets/ebook-2.webp",
+        "assets/ebook-3.webp",
+        "assets/ebook-4.webp",
+        "assets/ebook-5.webp"
+      ]
+    },
+    {
+      "slug": "curso-lettering",
+      "titulo": "Curso Online de Lettering",
+      "meta": "Curso online",
+      "precio": "$40.000 ARS",
+      "descripcion": "Curso en video donde recorro el lettering de principio a fin, explicando cada decisión de trazo y composición. Acceso ilimitado.",
+      "imagenes": [
+        "assets/curso-1.webp",
+        "assets/curso-2.webp",
+        "assets/curso-3.webp"
+      ]
+    }
+  ]
+}
