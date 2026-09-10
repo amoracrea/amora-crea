@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<![CDATA[
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-faf61548-6d35-4f40-80b8-02422dadc020/styles.css">
+<script src="_ds/modernist-faf61548-6d35-4f40-80b8-02422dadc020/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Give+You+Glory&display=swap">
+<script src="./image-slot.js"></script>
+<script src="./mobile-nav.js"></script>
+<script src="./content-loader.js"></script>
+<style>
+body{margin:0}
+a{color:var(--color-accent)}
+a:hover{color:var(--color-accent-700)}
+:root{
+  --color-bg:#f3f2f2;
+  --color-surface:#eae9e9;
+  --color-text:#2b2320;
+  --color-divider:color-mix(in srgb, #2b2320 35%, transparent);
+  --color-accent:#D93D92;
+  --color-accent-100:#fbe4f0;
+  --color-accent-200:#f5c2de;
+  --color-accent-300:#ec95c4;
+  --color-accent-400:#e468aa;
+  --color-accent-500:#D93D92;
+  --color-accent-600:#b8307a;
+  --color-accent-700:#942663;
+  --color-accent-800:#6f1c4a;
+  --color-accent-900:#4a1332;
+  --color-accent-2:#778C58;
+  --color-accent-2-100:#eef1e7;
+  --color-accent-2-200:#d7ddc4;
+  --color-accent-2-300:#bcc79c;
+  --color-accent-2-400:#9fb073;
+  --color-accent-2-500:#778C58;
+  --color-accent-2-600:#62753f;
+  --color-accent-2-700:#4c5c30;
+  --color-accent-2-800:#384522;
+  --color-accent-2-900:#252e16;
+  --color-warm:#F6AA32;
+  --color-cool:#AFD9D8;
+}
+.grayscale{filter:none}
+@media (max-width: 860px){
+  [data-stack-mobile]{grid-template-columns:1fr !important;gap:24px !important;align-items:start !important}
+  [data-card-mobile]{flex:0 0 86vw !important}
+  [data-rail-mobile]{padding-left:0 !important;padding-right:0 !important}
+  button[aria-label="Anterior"],button[aria-label="Siguiente"]{display:none !important}
+  h1{font-size:34px !important;white-space:normal !important;max-width:none !important;width:auto !important;height:auto !important}
+}
+@media (max-width: 560px){
+  [data-card-mobile] [data-stack-inner]{grid-template-columns:1fr !important}
+  .btn{width:100% !important}
+}
+h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
+</style>
+</helmet>
+<nav class="nav">
+  <a class="nav-brand" href="index.html" style="text-decoration:none;color:inherit"><img src="assets/logo-amora.png" alt="Amora Crea" style="height:22px;width:auto;display:block"></a>
+  <a href="Muralismo.dc.html">MURALISMO</a>
+  <a href="ArtShop.dc.html" aria-current="page">OBRAS</a>
+  <a href="Contenido.dc.html">CONTENIDO</a>
+  <a href="Shop.dc.html">SHOP</a>
+  <a href="AboutMe.dc.html">SOBRE MÍ</a>
+  <a href="Contact.dc.html">CONTACTO</a>
+</nav>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+  <section style="padding:48px 0 16px">
+    <a href="ArtShop.dc.html" style="font-size:13px;text-decoration:none">← Volver a Obras</a>
+  </section>
+
+  <section data-stack-mobile style="display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:48px;align-items:start;padding:16px 0 64px">
+    <x-import component-from-global-scope="ProductGallery" from="./ProductGallery.jsx" images="{{ imagenes }}" autoplay="5000" arrows="{{ false }}" hint-size="100%,560px"></x-import>
+    <div>
+      <h1 style="font-size:clamp(30px,4vw,44px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 8px">{{ titulo }}</h1>
+      <p style="font-size:14px;color:color-mix(in srgb, var(--color-text) 65%, transparent);margin:0 0 24px">{{ tecnica }}</p>
+      <p style="font-size:16px;line-height:1.65;max-width:48ch;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin:0 0 32px">{{ descripcion }}</p>
+      <sc-if value="{{ disponible }}" hint-placeholder-val="{{ true }}">
+        <a href="{{ waHref }}" class="btn btn-secondary">CONSULTAR POR WHATSAPP</a>
+      </sc-if>
+      <sc-if value="{{ vendida }}">
+        <button type="button" class="btn btn-secondary" disabled>VENDIDA</button>
+      </sc-if>
+    </div>
+  </section>
+
+</div>
+
+<div style="max-width:1200px;margin:0 auto;padding:32px clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:2px solid var(--color-divider)">
+  <span style="font-size:13px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">© AMORA CREA</span>
+  <div style="display:flex;gap:16px;font-size:13px">
+    <a href="Contact.dc.html">Contacto</a>
+    <a href="https://instagram.com/amora.crea">@amora.crea</a>
+  </div>
+</div>
+]]>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { obra: null };
+  componentDidMount() {
+    const slug = new URLSearchParams(location.search).get('o');
+    window.AmoraContent.load('obras', 'obras').then((list) => {
+      const obra = (list || []).find((o) => o.slug === slug) || (list || [])[0] || null;
+      this.setState({ obra });
+      if (obra) document.title = obra.titulo + ' — Amora Crea';
+    });
+  }
+  renderVals() {
+    const o = this.state.obra;
+    if (!o) return { titulo: '', tecnica: '', descripcion: '', imagenes: [], disponible: false, vendida: false, waHref: '#' };
+    const vendida = o.estado === 'vendida';
+    return {
+      titulo: o.titulo,
+      tecnica: o.tecnica,
+      descripcion: o.descripcion,
+      imagenes: o.imagenes || [],
+      disponible: !vendida,
+      vendida: vendida,
+      waHref: window.AmoraContent.wa('Hola Amora! Me interesa la obra ' + o.titulo)
+    };
+  }
+}</script>
+</body>
+</html>
