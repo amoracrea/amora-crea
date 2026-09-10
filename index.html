@@ -7,8 +7,7 @@
 </head>
 <body>
 <x-dc>
-<!--[CDATA[
-<sc-helmet-->
+<helmet>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Give+You+Glory&amp;display=swap">
 <script src="./image-slot.js"></script>
@@ -59,6 +58,7 @@ a:hover{color:var(--color-accent-700)}
 }
 h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
 </style>
+</helmet>
 
 <nav class="nav">
   <a class="nav-brand" href="index.html" style="text-decoration:none;color:inherit"><img src="assets/logo-amora.png" alt="Amora Crea" style="height:22px;width:auto;display:block"></a>
@@ -74,7 +74,7 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
 
   <section data-stack-mobile style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;padding:88px 0 56px">
     <figure class="grayscale" style="margin:0">
-      <image-slot id="home-portrait" shape="rect" placeholder="Foto de tus obras" style="width:100%;aspect-ratio:4/5"></image-slot>
+      <image-slot id="home-portrait" src="assets/home-portrait.webp" shape="rect" placeholder="Foto de tus obras" style="width:100%;aspect-ratio:4/5"></image-slot>
     </figure>
     <div>
       <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:16px">BIENVENIDOS!</span>
@@ -164,7 +164,6 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
     <a href="https://instagram.com/amora.crea">@amora.crea</a>
   </div>
 </div>
-]]&gt;
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 
