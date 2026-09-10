@@ -98,7 +98,7 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
       <button type="button" onClick="{{ vidPrev }}" aria-label="Anterior" style="{{ prevStyle }}" style-hover="background:var(--color-accent-600)">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
       </button>
-      <button type="button" onClick="{{ vidNext }}" aria-label="Siguiente" style="position:absolute;right:0;top:260px;width:48px;height:48px;border-radius:50%;border:none;background:var(--color-accent);color:var(--color-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;box-shadow:0 2px 12px rgba(217,61,146,0.35)" style-hover="background:var(--color-accent-600)">
+      <button type="button" onClick="{{ vidNext }}" aria-label="Siguiente" style="position:absolute;right:0;top:260px;width:48px;height:48px;border-radius:50%;border:none;background:var(--color-accent-600);color:var(--color-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;box-shadow:0 2px 12px rgba(217,61,146,0.35)" style-hover="background:var(--color-accent-600)">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
       </button>
     <div id="vid-track" style="display:flex;gap:24px;overflow-x:auto;scrollbar-width:none">
@@ -112,7 +112,7 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
             </sc-if>
             <sc-if value="{{ v.tieneVideo }}" hint-placeholder-val="{{ true }}">
               <figure style="margin:0">
-                <video src="{{ v.video }}" controls="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="none" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--color-text)"></video>
+                <video src="{{ v.video }}" poster="{{ v.poster }}" controls="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="none" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--color-text)"></video>
               </figure>
             </sc-if>
             <sc-if value="{{ v.tieneFoto2 }}">
@@ -140,7 +140,7 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
     </div>
   </section>
 </div>
-<section style="background:var(--color-accent);color:var(--color-bg)">
+<section style="background:var(--color-accent-600);color:var(--color-bg)">
   <div style="max-width:1200px;margin:0 auto;padding:56px clamp(20px,5vw,72px)">
     <h3 style="font-size:clamp(30px,4vw,48px);line-height:1.1;margin:0 0 20px">¿Tenés una pared en mente?</h3>
     <a href="MuralismoPresupuesto.dc.html" class="btn btn-ghost" style="color:var(--color-bg);border-color:var(--color-bg)">SOLICITAR PRESUPUESTO</a>
@@ -184,7 +184,7 @@ class Component extends DCLogic {
     }, 16);
   }
   renderVals() {
-    const base = 'position:absolute;left:0;top:260px;width:48px;height:48px;border-radius:50%;border:none;background:var(--color-accent);color:var(--color-bg);cursor:pointer;align-items:center;justify-content:center;z-index:1;box-shadow:0 2px 12px rgba(217,61,146,0.35);';
+    const base = 'position:absolute;left:0;top:260px;width:48px;height:48px;border-radius:50%;border:none;background:var(--color-accent-600);color:var(--color-bg);cursor:pointer;align-items:center;justify-content:center;z-index:1;box-shadow:0 2px 12px rgba(217,61,146,0.35);';
     return {
       vidrieras: (this.state.vidrieras || []).map((v) => ({
         anio: v.anio,
@@ -193,6 +193,7 @@ class Component extends DCLogic {
         imagen: v.imagen || '',
         imagen2: v.imagen2 || '',
         video: v.video || '',
+        poster: v.poster || '',
         tieneFoto1: !!v.imagen,
         tieneVideo: !!v.video,
         tieneFoto2: !v.video && !!v.imagen2

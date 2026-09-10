@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Give+You+Glory&amp;display=swap">
 <script src="./image-slot.js"></script>
 <script src="./mobile-nav.js"></script>
+<script src="./content-loader.js"></script>
 <style>
 body{margin:0}
 a{color:var(--color-accent)}
@@ -91,12 +92,7 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
 
   <section style="padding:56px 0">
     <h2 style="font-size:28px;margin:0 0 24px">Obras disponibles</h2>
-    <x-import component-from-global-scope="AccordionGallery" from="./AccordionGallery.jsx" default-index="2" expand-ratio="0.52" trigger="hover" hint-size="100%,460px">
-      <span data-image="assets/tropicana.webp" data-link="Obra.dc.html?o=tropicana">Tropicana</span>
-      <span data-image="assets/queda-mucho-por-florecer.webp" data-link="Obra.dc.html?o=queda-mucho-por-florecer">Queda mucho por florecer</span>
-      <span data-image="assets/tramas.webp" data-link="Obra.dc.html?o=fluir">Tramas</span>
-      <span data-image="assets/purpurita.webp" data-link="Obra.dc.html?o=purpurita">Purpurita</span>
-    </x-import>
+    <x-import component-from-global-scope="AccordionGallery" from="./AccordionGallery.jsx" items="{{ galleryItems }}" default-index="1" expand-ratio="0.52" trigger="hover" hint-size="100%,460px"></x-import>
   </section>
 
   <hr class="hr">
@@ -147,11 +143,11 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
 
 </div>
 
-<section style="background:var(--color-accent);color:var(--color-bg);overflow:hidden">
+<section style="background:var(--color-accent-600);color:var(--color-bg);overflow:hidden">
   <div style="max-width:1200px;margin:0 auto">
     <div style="padding:56px clamp(20px,5vw,72px) 56px clamp(20px,5vw,72px)">
       <h3 style="font-size:clamp(30px,4vw,48px);line-height:1.1;margin:0 0 20px">Visitá la galería.</h3>
-      <p style="font-size:16px;max-width:52ch;margin:0 0 24px;opacity:0.9">Tocá el botón para conocer las obras disponibles y acceder al formulario de solicitud de compra.</p>
+      <p style="font-size:16px;max-width:52ch;margin:0 0 24px">Tocá el botón para conocer las obras disponibles y acceder al formulario de solicitud de compra.</p>
       <a href="ArtShop.dc.html" class="btn btn-ghost" style="color:var(--color-bg);border-color:var(--color-bg)">THE ART SHOP</a>
     </div>
   </div>
@@ -168,7 +164,19 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
 <script type="text/x-dc" data-dc-script>
 
 class Component extends DCLogic {
-  renderVals() { return {}; }
+  state = { obras: [] };
+  componentDidMount() {
+    window.AmoraContent.load('obras', 'obras').then((obras) => this.setState({ obras }));
+  }
+  renderVals() {
+    return {
+      galleryItems: (this.state.obras || []).map((o) => ({
+        image: (o.imagenes || [])[0] || '',
+        label: o.titulo,
+        link: 'Obra.dc.html?o=' + encodeURIComponent(o.slug || '')
+      }))
+    };
+  }
 }</script>
 </body>
 </html>
