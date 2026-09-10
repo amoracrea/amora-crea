@@ -4,15 +4,17 @@
       "anio": "2026",
       "titulo": "Vidriera Mundialista — El Almacén Natural",
       "descripcion": "Vidrieras pintadas con pintura acrílica, diseño exclusivo para teñir de Argentina este bar y tienda saludable.",
-      "imagen": "",
-      "video": "assets/vidriera-almacen-natural.mp4"
+      "imagen": "assets/vidriera-almacen-natural-foto.webp",
+      "video": "https://res.cloudinary.com/d9x0h6b9/video/upload/q_auto,vc_auto,w_720,c_limit/v1789060933/0905_1.mp4",
+      "poster": "https://res.cloudinary.com/d9x0h6b9/video/upload/so_2,q_auto,w_720,c_limit/v1789060933/0905_1.jpg"
     },
     {
       "anio": "2026",
       "titulo": "Vidriera Mundialista — Pastas Adriana",
       "descripcion": "Combinamos la pasión mundialista con las pastas para crear un diseño llamativo y creativo.",
       "imagen": "assets/vidriera-pastas-adriana.webp",
-      "video": "assets/vidriera-pastas-adriana.mp4"
+      "video": "https://res.cloudinary.com/d9x0h6b9/video/upload/q_auto,vc_auto,w_720,c_limit/v1789061194/IMG_9219.mp4",
+      "poster": "https://res.cloudinary.com/d9x0h6b9/video/upload/so_2,q_auto,w_720,c_limit/v1789061194/IMG_9219.jpg"
     },
     {
       "anio": "2026",
@@ -25,7 +27,7 @@
       "anio": "2026",
       "titulo": "Vidriera TDH — Promoción Iguazú",
       "descripcion": "Con este cliente estamos realizando de manera mensual intervenciones en su local, promocionando diferentes destinos de temporada. Potenciando así la visibilidad y las ventas.",
-      "imagen": "",
+      "imagen": "assets/vidriera-tdh-1.webp",
       "imagen2": "assets/vidriera-tdh-2.webp"
     },
     {

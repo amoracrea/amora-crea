@@ -1,20 +1,24 @@
 {
   "colaboraciones": [
     {
-      "titulo": "Colaboración 1",
-      "video": "assets/colab-1.mp4"
+      "titulo": "Compactor — sorteo",
+      "video": "https://res.cloudinary.com/d9x0h6b9/video/upload/q_auto,vc_auto,w_720,c_limit/v1789060858/FINALIZADO-_ganadoras_romina.espindola.92_danielapampita_veronica_casale_Sorteo_con_compacto.mp4",
+      "poster": "https://res.cloudinary.com/d9x0h6b9/video/upload/so_2,q_auto,w_720,c_limit/v1789060858/FINALIZADO-_ganadoras_romina.espindola.92_danielapampita_veronica_casale_Sorteo_con_compacto.jpg"
     },
     {
-      "titulo": "Colaboración 2",
-      "video": "assets/colab-2.mp4"
+      "titulo": "HIMI — unboxing de acrílicos",
+      "video": "https://res.cloudinary.com/d9x0h6b9/video/upload/q_auto,vc_auto,w_720,c_limit/v1789060855/Unboxing_de_acr%C3%ADlicos_himiart.arg_no_saben_las_ganas_que_ten%C3%ADa_de_probar_y_tener_estas_cajas.mp4",
+      "poster": "https://res.cloudinary.com/d9x0h6b9/video/upload/so_2,q_auto,w_720,c_limit/v1789060855/Unboxing_de_acr%C3%ADlicos_himiart.arg_no_saben_las_ganas_que_ten%C3%ADa_de_probar_y_tener_estas_cajas.jpg"
     },
     {
-      "titulo": "Colaboración 3",
-      "video": "assets/colab-3.mp4"
+      "titulo": "Arcilla de secado al aire",
+      "video": "https://res.cloudinary.com/d9x0h6b9/video/upload/q_auto,vc_auto,w_720,c_limit/v1789060835/Use_arcilla_de_secado_al_aire_por_primera_vez_y_AMEEE_este_hobby._Me_encant%C3%B3_para_conectar_y_est.mp4",
+      "poster": "https://res.cloudinary.com/d9x0h6b9/video/upload/so_2,q_auto,w_720,c_limit/v1789060835/Use_arcilla_de_secado_al_aire_por_primera_vez_y_AMEEE_este_hobby._Me_encant%C3%B3_para_conectar_y_est.jpg"
     },
     {
-      "titulo": "Colaboración 4",
-      "video": "assets/colab-4.mp4"
+      "titulo": "El Auditor + Sharpie — sorteo",
+      "video": "https://res.cloudinary.com/d9x0h6b9/video/upload/q_auto,vc_auto,w_720,c_limit/v1789060777/SORTEOOOO_en_este_reel_junto_a_elauditor.com.ar_sharpie.ar_Pueden_ganarse_este_vaso_pintado.mp4",
+      "poster": "https://res.cloudinary.com/d9x0h6b9/video/upload/so_2,q_auto,w_720,c_limit/v1789060777/SORTEOOOO_en_este_reel_junto_a_elauditor.com.ar_sharpie.ar_Pueden_ganarse_este_vaso_pintado.jpg"
     }
   ]
 }
