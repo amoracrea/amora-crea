@@ -117,6 +117,11 @@ collections:
                 pattern: ['^[a-z0-9-]+$', 'Solo minúsculas, números y guiones']
               - { name: meta, label: Tipo o entrega, widget: string, hint: 'Ej. Envíos a todo el país, Ebook PDF, Curso online' }
               - { name: precio, label: Precio, widget: string, hint: 'Ej. $45.000 ARS' }
+              - name: link
+                label: Link de compra externo
+                widget: string
+                required: false
+                hint: 'Opcional. Si el producto se vende en Hotmart u otra plataforma, pegá el link acá y el botón dirá COMPRAR y llevará ahí. Si lo dejás vacío, el botón consulta por WhatsApp.'
               - { name: descripcion, label: Descripción, widget: text }
               - name: imagenes
                 label: Fotos del producto
