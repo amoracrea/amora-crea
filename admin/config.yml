@@ -60,10 +60,15 @@ collections:
               - { name: imagen, label: Foto 1, widget: image, required: false }
               - { name: imagen2, label: Foto 2, widget: image, required: false }
               - name: video
-                label: Video
-                widget: file
+                label: Link del video (Cloudinary)
+                widget: string
                 required: false
-                hint: Opcional. Si subís un video va en el segundo lugar, en vez de la Foto 2.
+                hint: 'Opcional. Subí el video a Cloudinary, copiá el link (Copy URL) y pegalo acá. Si ponés un video va en el segundo lugar, en vez de la Foto 2.'
+              - name: poster
+                label: Link de la miniatura del video
+                widget: string
+                required: false
+                hint: 'Opcional. Es el mismo link del video pero terminando en .jpg y con so_0 al principio de las opciones. Si lo dejás vacío el video se ve negro hasta que le den play.'
 
   - name: colaboraciones
     label: Colaboraciones
@@ -80,12 +85,15 @@ collections:
             summary: "{{fields.titulo}}"
             fields:
               - { name: titulo, label: Marca o título, widget: string }
-              - { name: video, label: Video, widget: file }
+              - name: video
+                label: Link del video (Cloudinary)
+                widget: string
+                hint: 'Subí el video a Cloudinary, copiá el link con Copy URL y pegalo acá.'
               - name: poster
-                label: Foto de portada del video
-                widget: image
+                label: Link de la miniatura del video
+                widget: string
                 required: false
-                hint: Opcional pero recomendado — es la imagen que se ve antes de darle play. Hace que la página cargue más rápido.
+                hint: 'Opcional pero recomendado — es lo que se ve antes de darle play. Mismo link del video, terminado en .jpg.'
 
   - name: productos
     label: Productos del Shop
