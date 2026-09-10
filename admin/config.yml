@@ -1,0 +1,116 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: es
+media_folder: assets
+public_folder: assets
+
+collections:
+  - name: obras
+    label: Obras
+    files:
+      - name: obras
+        label: Obras del Art Shop
+        file: content/obras.json
+        description: Las obras que se muestran en OBRAS. El orden de la lista es el orden en la web.
+        fields:
+          - name: obras
+            label: Obras
+            label_singular: Obra
+            widget: list
+            summary: "{{fields.titulo}} — {{fields.estado}}"
+            fields:
+              - { name: titulo, label: Nombre de la obra, widget: string }
+              - name: slug
+                label: Identificador para el enlace
+                widget: string
+                hint: Sin espacios ni acentos, todo en minúscula. Ej. flor-de-loto
+                pattern: ['^[a-z0-9-]+$', 'Solo minúsculas, números y guiones']
+              - { name: tecnica, label: Técnica y medidas, widget: string, default: Acrílico sobre lienzo }
+              - name: estado
+                label: Estado
+                widget: select
+                options: [disponible, vendida]
+                default: disponible
+              - { name: descripcion, label: Qué quisiste expresar, widget: text }
+              - name: imagenes
+                label: Fotos de la obra
+                widget: list
+                field: { name: imagen, label: Foto, widget: image }
+                hint: La primera es la que se ve en el catálogo. Podés subir varias.
+
+  - name: vidrieras
+    label: Vidrieras y murales
+    files:
+      - name: vidrieras
+        label: Vidrieras y murales
+        file: content/vidrieras.json
+        description: El carrusel "Más vidrieras" de la página MURALISMO.
+        fields:
+          - name: vidrieras
+            label: Vidrieras
+            label_singular: Vidriera
+            widget: list
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: anio, label: Año, widget: string, default: '2026' }
+              - { name: descripcion, label: Descripción, widget: text }
+              - { name: imagen, label: Foto 1, widget: image, required: false }
+              - { name: imagen2, label: Foto 2, widget: image, required: false }
+              - name: video
+                label: Video
+                widget: file
+                required: false
+                hint: Opcional. Si subís un video va en el segundo lugar, en vez de la Foto 2.
+
+  - name: colaboraciones
+    label: Colaboraciones
+    files:
+      - name: colaboraciones
+        label: Colaboraciones con marcas
+        file: content/colaboraciones.json
+        description: Los videos de la página CONTENIDO.
+        fields:
+          - name: colaboraciones
+            label: Colaboraciones
+            label_singular: Colaboración
+            widget: list
+            summary: "{{fields.titulo}}"
+            fields:
+              - { name: titulo, label: Marca o título, widget: string }
+              - { name: video, label: Video, widget: file }
+              - name: poster
+                label: Foto de portada del video
+                widget: image
+                required: false
+                hint: Opcional pero recomendado — es la imagen que se ve antes de darle play. Hace que la página cargue más rápido.
+
+  - name: productos
+    label: Productos del Shop
+    files:
+      - name: productos
+        label: Productos del Shop
+        file: content/productos.json
+        description: Sketchbooks, ebooks y cursos.
+        fields:
+          - name: productos
+            label: Productos
+            label_singular: Producto
+            widget: list
+            summary: "{{fields.titulo}} — {{fields.precio}}"
+            fields:
+              - { name: titulo, label: Nombre del producto, widget: string }
+              - name: slug
+                label: Identificador para el enlace
+                widget: string
+                hint: Sin espacios ni acentos, todo en minúscula. Ej. sketchbook-vol-2
+                pattern: ['^[a-z0-9-]+$', 'Solo minúsculas, números y guiones']
+              - { name: meta, label: Tipo o entrega, widget: string, hint: 'Ej. Envíos a todo el país, Ebook PDF, Curso online' }
+              - { name: precio, label: Precio, widget: string, hint: 'Ej. $45.000 ARS' }
+              - { name: descripcion, label: Descripción, widget: text }
+              - name: imagenes
+                label: Fotos del producto
+                widget: list
+                field: { name: imagen, label: Foto, widget: image }
