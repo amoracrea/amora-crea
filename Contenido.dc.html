@@ -49,8 +49,11 @@ a:hover{color:var(--color-accent-700)}
 .grayscale{filter:none}
 @media (max-width: 860px){
   [data-stack-mobile]{grid-template-columns:1fr !important;gap:24px !important;align-items:start !important}
-  [data-card-mobile]{flex:0 0 86vw !important}
   [data-rail-mobile]{padding-left:0 !important;padding-right:0 !important}
+  /* stack the horizontal rails vertically: a sideways rail gives no hint that
+     more content exists, and forces a second scroll to read each caption */
+  #vid-track{flex-direction:column !important;overflow-x:visible !important;gap:40px !important}
+  [data-card-mobile]{flex:0 0 auto !important;width:100% !important}
   button[aria-label="Anterior"],button[aria-label="Siguiente"]{display:none !important}
   h1{font-size:34px !important;white-space:normal !important;max-width:none !important;width:auto !important;height:auto !important}
 }

@@ -1,4 +1,4 @@
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const LABEL_STYLE = {
   color: 'var(--color-bg)',
@@ -29,8 +29,7 @@ function useContainerNarrow(ref, bp) {
   return narrow;
 }
 
-function AccordionGallery({ items, defaultIndex = 0, expandRatio = 0.52, trigger = 'hover', children }) {
-  // Prefer children (editable template markup) over the items prop.
+function AccordionGallery({ children, items, defaultIndex = 0, expandRatio = 0.52, trigger = 'hover' }) {
   const kids = React.Children.toArray(children).filter(c => c && c.props);
   const list = kids.length
     ? kids.map(c => ({
@@ -45,41 +44,83 @@ function AccordionGallery({ items, defaultIndex = 0, expandRatio = 0.52, trigger
   const r = Math.min(Math.max(expandRatio, 0.2), 0.9);
   const grow = count > 1 ? (r * (count - 1)) / (1 - r) : 1;
 
-  const rootRef = React.useRef(null);
+  const rootRef = useRef(null);
   const isMobile = useContainerNarrow(rootRef, 760);
 
-  const setActiveHandlers = (i) => isMobile
-    ? {}
-    : (trigger === 'hover'
-        ? { onMouseEnter: () => setActive(i), onFocus: () => setActive(i) }
-        : { onClick: () => setActive(i) });
+  const label = (item, style) =>
+    item.node
+      ? React.cloneElement(item.node, {
+          'data-image': undefined,
+          'data-link': undefined,
+          style: { ...LABEL_STYLE, ...style, ...(item.node.props.style || {}) }
+        })
+      : React.createElement('span', { style: { ...LABEL_STYLE, ...style } }, item.label);
 
-  const containerStyle = isMobile
-    ? { display: 'flex', gap: '12px', width: '100%', overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', paddingBottom: '4px' }
-    : { display: 'flex', gap: '10px', width: '100%', height: '460px', borderRadius: '0', overflow: 'hidden' };
+  // ---- Mobile: vertical stack. Images sit in normal flow so their intrinsic
+  // size gives the card its height — no aspect-ratio/flex circularity, and no
+  // horizontal scrolling (which gave no hint that more content existed).
+  if (isMobile) {
+    return React.createElement('div', {
+      ref: rootRef,
+      style: { display: 'flex', flexDirection: 'column', gap: '20px', width: '100%' }
+    }, list.map((item, i) => React.createElement('a', {
+      key: i,
+      href: item.link || undefined,
+      style: {
+        position: 'relative',
+        display: 'block',
+        width: '100%',
+        textDecoration: 'none',
+        background: 'var(--color-text)'
+      }
+    },
+      React.createElement('img', {
+        src: item.image,
+        alt: '',
+        loading: i === 0 ? 'eager' : 'lazy',
+        decoding: 'async',
+        draggable: 'false',
+        style: { width: '100%', height: 'auto', display: 'block' }
+      }),
+      React.createElement('span', {
+        style: {
+          position: 'absolute', left: 0, right: 0, bottom: 0, height: '45%',
+          pointerEvents: 'none',
+          background: 'linear-gradient(180deg, transparent 0%, rgba(43,35,32,0.8) 100%)'
+        }
+      }),
+      React.createElement('span', {
+        style: {
+          position: 'absolute', left: '16px', bottom: '14px', right: '16px',
+          display: 'flex', alignItems: 'center', gap: '10px'
+        }
+      },
+        React.createElement('span', { style: { width: '3px', height: '24px', background: 'var(--color-accent)', flex: '0 0 auto' } }),
+        label(item, { fontSize: '26px' })
+      )
+    )));
+  }
 
-  return React.createElement('div', { ref: rootRef, style: containerStyle }, list.map((item, i) => {
-    const isActive = isMobile ? true : i === active;
+  // ---- Desktop: hover accordion
+  const setActiveHandlers = (i) => trigger === 'hover'
+    ? { onMouseEnter: () => setActive(i), onFocus: () => setActive(i) }
+    : { onClick: () => setActive(i) };
+
+  return React.createElement('div', {
+    ref: rootRef,
+    style: { display: 'flex', gap: '10px', width: '100%', height: '460px', overflow: 'hidden' }
+  }, list.map((item, i) => {
+    const isActive = i === active;
     return React.createElement('a', {
       key: i,
       href: item.link || undefined,
       ...setActiveHandlers(i),
-      style: isMobile ? {
-        position: 'relative',
-        flex: '0 0 78%',
-        aspectRatio: '4 / 5',
-        scrollSnapAlign: 'start',
-        overflow: 'hidden',
-        textDecoration: 'none',
-        display: 'block',
-        background: 'var(--color-text)'
-      } : {
+      style: {
         position: 'relative',
         flexGrow: isActive ? grow : 1,
         flexBasis: 0,
         minWidth: 0,
         overflow: 'hidden',
-        borderRadius: '0',
         cursor: 'pointer',
         textDecoration: 'none',
         display: 'block',
@@ -93,9 +134,7 @@ function AccordionGallery({ items, defaultIndex = 0, expandRatio = 0.52, trigger
         loading: 'lazy',
         decoding: 'async',
         draggable: 'false',
-        style: {
-          position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover'
-        }
+        style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }
       }),
       React.createElement('span', {
         style: {
@@ -109,17 +148,11 @@ function AccordionGallery({ items, defaultIndex = 0, expandRatio = 0.52, trigger
           position: 'absolute', left: '20px', bottom: '20px', right: '20px',
           display: 'flex', alignItems: 'center', gap: '12px',
           opacity: isActive ? 1 : 0, transform: isActive ? 'translateX(0)' : 'translateX(-14px)',
-          transition: isMobile ? 'none' : 'opacity 0.4s ease, transform 0.4s ease'
+          transition: 'opacity 0.4s ease, transform 0.4s ease'
         }
       },
         React.createElement('span', { style: { width: '3px', height: '26px', background: 'var(--color-accent)' } }),
-        item.node
-          ? React.cloneElement(item.node, {
-              'data-image': undefined,
-              'data-link': undefined,
-              style: { ...LABEL_STYLE, ...(isMobile ? { fontSize: '24px' } : { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }), ...(item.node.props.style || {}) }
-            })
-          : React.createElement('span', { style: { ...LABEL_STYLE, ...(isMobile ? { fontSize: '24px' } : { whiteSpace: 'nowrap', textOverflow: 'ellipsis' }) } }, item.label)
+        label(item, { whiteSpace: 'nowrap', textOverflow: 'ellipsis' })
       )
     );
   }));
