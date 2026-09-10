@@ -86,7 +86,12 @@ h1,h2,h3{font-family:'Give You Glory',cursive;font-weight:400;letter-spacing:0;}
       <h1 style="font-size:clamp(28px,4vw,40px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 12px">{{ titulo }}</h1>
       <p style="font-size:20px;margin:0 0 24px">{{ precio }}</p>
       <p style="font-size:16px;line-height:1.65;max-width:48ch;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin:0 0 32px">{{ descripcion }}</p>
-      <a href="{{ waHref }}" class="btn btn-primary">CONSULTAR / COMPRAR</a>
+      <sc-if value="{{ externo }}" hint-placeholder-val="{{ true }}">
+        <a href="{{ compraHref }}" target="_blank" rel="noopener" class="btn btn-primary">COMPRAR</a>
+      </sc-if>
+      <sc-if value="{{ porWhatsapp }}">
+        <a href="{{ compraHref }}" class="btn btn-primary">CONSULTAR / COMPRAR</a>
+      </sc-if>
     </div>
   </section>
 
@@ -113,14 +118,17 @@ class Component extends DCLogic {
   }
   renderVals() {
     const p = this.state.producto;
-    if (!p) return { titulo: '', meta: '', precio: '', descripcion: '', imagenes: [], waHref: '#' };
+    if (!p) return { titulo: '', meta: '', precio: '', descripcion: '', imagenes: [], compraHref: '#', externo: false, porWhatsapp: false };
+    const externo = !!(p.link && p.link.trim());
     return {
+      externo: externo,
+      porWhatsapp: !externo,
+      compraHref: externo ? p.link.trim() : window.AmoraContent.wa('Hola Amora! Me interesa ' + p.titulo),
       titulo: p.titulo,
       meta: p.meta,
       precio: p.precio,
       descripcion: p.descripcion,
-      imagenes: p.imagenes || [],
-      waHref: window.AmoraContent.wa('Hola Amora! Me interesa ' + p.titulo)
+      imagenes: p.imagenes || []
     };
   }
 }</script>
